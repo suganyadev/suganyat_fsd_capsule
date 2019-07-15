@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+  <form class="form-horizontal" #taskForm="ngForm">
+    <div class="form-group">
+      <label for="task" class="control-label col-sm-3" >Task</label>
+      <input class="col-sm-9" type="text" [(ngModel)]="task.task"  name="task" required minlength="4" >
+    </div>
+    <div class="form-group">
+        <label for="priority"  class="control-label col-sm-3" >Priority</label>
+        <input class="col-sm-9" type="range" [(ngModel)]="task.priority" title="{{task.priority}}" name="priority" id="priority" required>
+        <span class="selected-value">{{task.priority}}</span>
+       
+    </div>
+    <div class="form-group">
+      <label for="parentTask" class="control-label col-sm-3" >Parent Task</label>
+      <input class="col-sm-9" type="text" [(ngModel)]="task.parentTask"   name="parentTask" id="parentTask" required>
+    </div>
+    <div class="form-group">
+      <label for="startDate" class="control-label col-sm-3" >Start Date</label>
+            <input class="col-sm-9" type="date" [(ngModel)]="task.startDate"   name="startDate" id="startDate" required>
+   </div>
+   <div class="form-group">
+      <label for="endDate" class="control-label col-sm-3" >End Date</label>
+      <input class="col-sm-9" type="date" [(ngModel)]="task.endDate"   name="endDate" id="endDate" (blur)="compareTwoDates()" required>
+      <div *ngIf="error.isError" class="alert alert-danger col-sm-offset-3">
+        {{ error.errorMessage }}
+      </div>
+    </div>  
+    <div class="form-group">
+      <div class="col-sm-9 col-sm-offset-3 mt-3">
+        <button type="submit" class="btn btn-secondary" (click)="addTask(taskForm.value)" [disabled]="taskForm.invalid">Add Task</button>&nbsp;&nbsp;
+        <button type="reset" class="btn btn-secondary">Reset</button>
+      </div>
+    </div>
+  </form>
+  </div>
+  </div>
+</div>

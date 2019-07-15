@@ -1,0 +1,7 @@
+input[type=range] {
+display: block; 
+ width: 33%; 
+}
+.selected-value {
+    float: right;
+}

@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.css';
+
+table {
+    width: 100%;
+}
+table th, table td {
+    padding: 10px 0;
+}
+table tbody {
+    border-bottom: #ddd solid 1px;
+}
